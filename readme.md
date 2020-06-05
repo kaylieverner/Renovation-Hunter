@@ -24,7 +24,6 @@ JQuery
 Animate.CSS
 Node.js
 Express
-Express Handlebars
 MySQL
 Sequelize
 

@@ -32,32 +32,10 @@ module.exports = function (sequelize, DataTypes) {
         len: [10, 10]
       }
     },
-    houseNumber: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    streetName: {
+    address: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    city: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    state: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [2, 2]
-      }
-    },
-    zipCode: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        len: [5, 5]
-      }
-    }
   });
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function (password) {
