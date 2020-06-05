@@ -1,5 +1,6 @@
 $(document).ready(function () {
   // Getting references to our form and input
+
   var signUpBtn = $('#signUpBtn');
   var firstName = $('#inputFirstName');
   var lastName = $('#inputLastName');
@@ -27,14 +28,17 @@ $(document).ready(function () {
   radioContractorBtn.click(function() {
     $('#form_container').find(':hidden').show().next();
     $('#form_sub_containerUser').hide();
+
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
+
   function signUpUser(firstName, lastName, email, password, phoneNum, address, city, state, zip) {
     $.post('/api/signup', {
       firstName: firstName,
       lastName: lastName,
+
       email: email,
       password: password,
       phoneNum: phoneNum,
@@ -43,10 +47,14 @@ $(document).ready(function () {
       state: state,
       zip: zip
     })
+
+
       .then(function (data) {
+
         window.location.replace('/members');
         // If there's an error, handle it by throwing up a bootstrap alert
       })
+      // eslint-disable-next-line no-use-before-define
       .catch(handleLoginErr);
   }
 
