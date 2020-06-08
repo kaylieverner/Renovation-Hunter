@@ -6,5 +6,11 @@ $(document).ready(function() {
   });
 });
 
+//when user clicks create, write job post info to database 
 
+//when user clicks create, append the job post to the jobs pending card 
+
+//when user wants to edit a post, bring up the job post info 
+
+//when user clicks delete post, remove data from database and remove card 
 
