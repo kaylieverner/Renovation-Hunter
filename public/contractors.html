@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Passport Authentication</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/contractors.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="stylesheets/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Rennovation Bidder</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Find Jobs</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Category</label>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">All</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                    <label class="custom-control-label" for="customCheck2">Kitchen</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                    <label class="custom-control-label" for="customCheck3">Landscaping</label>
+                                </div>
+
+                            </div>
+                            <button type="button" class="btn btn-primary">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-8">
+
+                <div class="row">
+                    <div class="col ml-3 mr-3 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="mb-3">Available Jobs</h3>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Title</h5>
+                                                <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
+                                                <p class="card-text">With supporting text below as a natural lead-in to
+                                                    additional content.</p>
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control" placeholder="Bid Amount" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                    <div class="input-group-append">
+                                                      <button class="btn btn-success" type="button">Bid</button>
+                                                    </div>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Title</h5>
+                                                <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
+                                                <p class="card-text">With supporting text below as a natural lead-in to
+                                                    additional content.</p>
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control" placeholder="Bid Amount" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                    <div class="input-group-append">
+                                                      <button class="btn btn-success" type="button">Bid</button>
+                                                    </div>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="row">
+                        <div class="col mb-3">
+                            <div class="card m-3">
+                                <div class="card-body">
+                                    <h3 class="mb-3">Bids Accepted</h3>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card w-75 mb-2">
+                                                <div class="card-body">
+                                                  <h5 class="card-title">Card title</h5>
+                                                  <h6 class="card-subtitle">Bid Amount</h6>
+                                                  <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
+                                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                  <p class="card-text">Homeowner Contact Info</p>
+                                                  <p class="card-text">Name</p>
+                                                  <p class="card-text">Phone</p>
+                                                  <p class="card-text">Email</p>
+                                                  <a href="#" class="btn btn-primary">Accept</a>
+                                                </div>
+                                              </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card w-75 mb-2">
+                                                <div class="card-body">
+                                                  <h5 class="card-title">Card title</h5>
+                                                  <h6 class="card-subtitle">Bid Amount</h6>
+                                                  <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
+                                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                                  <p class="card-text">Homeowner Contact Info</p>
+                                                  <a href="#" class="btn btn-primary">Message Homeowner</a>
+                                                </div>
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col mb-3">
+                            <div class="card m-3">
+                                <div class="card-body">
+                                    <h3 class="mb-3">Pending Bids</h3>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Bid Amount</h5>
+                                                    <h6 class="card-subtitle mb-2">Job Title</h6>
+                                                    <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
+                                                    <p class="card-text">With supporting text below as a natural lead-in
+                                                        to additional content.
+                                                    </p>
+                                                    <a href="#" class="btn btn-success">Edit Bid</a>
+                                                    <a href="#" class="btn btn-danger">Delete Bid</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Bid Amount</h5>
+                                                    <h6 class="card-subtitle mb-2">Job Title</h6>
+                                                    <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
+                                                    <p class="card-text">With supporting text below as a natural lead-in
+                                                        to additional content.
+                                                    </p>
+                                                    <a href="#" class="btn btn-success">Edit Bid</a>
+                                                    <a href="#" class="btn btn-danger">Delete Bid</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+</body>
+
+
+
+</html>
