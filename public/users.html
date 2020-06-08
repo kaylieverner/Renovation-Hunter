@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-    <title>Passport Authentication</title>
+    <title>Renovation Bidder</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -28,11 +28,50 @@
 </nav>
 
   <div class="container">
-    <div class="row">
+    <div class="row mt-5">
       <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
+        <h2>Get Started <span class="member-name"></span></h2>
+
+        <p>Please share some information about your project and we can help link you with some local contarctors!</p>
       </div>
     </div>
+  </div>
+
+  <div class="container mt-5">
+    <div id="form_container">
+      <div id="form_sub_containerUser" style="display: block;">
+        <form id="contractorForm" class="hide">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputFirstName">Title of Job</label>
+              <input type="text" class="form-control" id="inputFirstName">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputLastName">Desired Start Date</label>
+              <input type="text" class="form-control" id="inputLastName">
+            </div>
+          
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">Brief Description of Job</label>
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputState">Job Category</label>
+              <select id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option>Plumbing</option>
+                <option>Electrical</option>
+                <option>Lanscaping</option>
+                <option>General Construction</option>
+                <option>Roofing</option>
+                <option>HVAC</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" id="signUpBtn">Submit</button>
+        </form>
+      </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
