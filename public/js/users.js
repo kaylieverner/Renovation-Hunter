@@ -6,6 +6,7 @@ $(document).ready(function() {
   });
 });
 
+
 //when user clicks create, write job post info to database 
 
 //when user clicks create, append the job post to the jobs pending card 

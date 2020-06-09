@@ -50,4 +50,42 @@ module.exports = function(app) {
       });
     }
   });
+
+  // Route for searching listings
+  app.get('/api/:job?', function(req, res) {
+    if (req.params.job) {
+      // Display the JSON for ONLY that job.
+
+      Job.findOne({
+        where: {
+          title: req.params.job
+        }
+      }).then(function(result) {
+        return res.json(result);
+      });
+    } else {
+      Job.findAll().then(function(result) {
+        return res.json(result);
+      });
+    }
+  });
+
+  // Route for searching job by catergory
+  app.get('/api/:jobType?', function(req, res) {
+    if (req.params.jobType) {
+      // Display the JSON for ONLY that job category.
+
+      Job.findOne({
+        where: {
+          category: req.params.jobType
+        }
+      }).then(function(result) {
+        return res.json(result);
+      });
+    } else {
+      Job.findAll().then(function(result) {
+        return res.json(result);
+      });
+    }
+  });
 };
