@@ -3,6 +3,13 @@ $(document).ready(function(){
 
   //query available jobs card based on selection the user makes
 
+  //all posts
+  function getPosts() {
+
+  };
+
+  //specific posts based on category and date range
+
   //post bid amount upon clicking bid, then append to pending bids card
 
   //upon clicking accept, change to accepted button that is greyed out

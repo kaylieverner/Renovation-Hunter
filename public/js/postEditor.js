@@ -1,5 +1,9 @@
 // get job post by id 
+function getPost() {
 
-// update post title, timeframe, and/or description
+};
 
-//save button should save to database and route back to users.html
+// update post title, timeframe, and/or description to db and route to users.html
+function updatePost() {
+
+};

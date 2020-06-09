@@ -9,13 +9,24 @@ $(document).ready(function() {
 //figure out if a user or contractor is logged in to show correct html page 
 
 //when user clicks create, post job info to database 
+function createPost() {
+
+};
 
 //when user clicks create, append the job post to the jobs pending card 
 
-//when user wants to edit a post, bring up the job post info based on id 
+//when user wants to edit a post, bring up the job post info based on id and route to posteditor HTML
+function getPost() {
+
+};
 
 //when user clicks delete post, remove data from database and remove card 
+function deletePost() {
 
-//if user accepts bid, update bid amount in database and remove job post 
+}; 
 
-//update next card for job bids 
+//job posts with an active status should append to my active job posts
+//GET requst
+
+//job posts with an inactive status should append to jobs completed
+//GET request
