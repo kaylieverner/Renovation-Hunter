@@ -12,9 +12,7 @@ $(document).ready(function(){
     acceptBtn.html('Accepted');
   });
 
-  //edit bid page
-
-  //delete bid, remove bid from database
+ 
 });
 
 

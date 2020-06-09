@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Passport Authentication</title>
+  <title>Rennovation Bidder</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
@@ -42,7 +42,20 @@
             <form>
               <div class="form-group">
                 <label for="formGroupExampleInput">Title</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title">
+              </div>
+              <div class="form-group">
+                <label for="inputState">Job Category</label>
+                <select id="inputState" class="form-control">
+                  <option selected>Choose...</option>
+                  <option>Plumbing</option>
+                  <option>Electrical</option>
+                  <option>Lanscaping</option>
+                  <option>General Construction</option>
+                  <option>Roofing</option>
+                  <option>HVAC</option>
+                  <option>Other</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for="formGroupExampleInput">Timeframe</label>
@@ -64,17 +77,17 @@
           <div class="col mb-3">
             <div class="card">
               <div class="card-body">
-                <h3 class="mb-3">Job Bids</h3>
+                <h3 class="mb-3">Active Job Posts</h3>
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="card">
                       <div class="card-body">
                         <h5 class="card-title">Title</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
-                        <h6 class="card-subtitle mb-2">Contractor A Bid X Amount</h6>
+                        <h6 class="card-subtitle mb-2">Job Category</h6>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-success">Accept Bid</a>
-                        <a href="#" class="btn btn-danger">Reject Bid</a>
+                        <a href="#" class="btn btn-success">Edit Post</a>
+                        <a href="#" class="btn btn-danger">Delete Post</a>
                       </div>
                     </div>
                   </div>
@@ -83,10 +96,10 @@
                       <div class="card-body">
                         <h5 class="card-title">Title</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
-                        <h6 class="card-subtitle mb-2">Bid Amount</h6>
+                        <h6 class="card-subtitle mb-2">Job Category</h6>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-success">Accept Bid</a>
-                        <a href="#" class="btn btn-danger">Reject Bid</a>
+                        <a href="#" class="btn btn-success">Edit Post</a>
+                        <a href="#" class="btn btn-danger">Delete Post</a>
                       </div>
                     </div>
                   </div>
@@ -99,18 +112,16 @@
             <div class="col mb-3">
               <div class="card m-3">
                 <div class="card-body">
-                  <h3 class="mb-3">Jobs Pending</h3>
+                  <h3 class="mb-3">Jobs Completed</h3>
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="card">
                         <div class="card-body">
                           <h5 class="card-title">Title</h5>
                           <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
-                          <h6 class="card-subtitle mb-2">Bid Amount</h6>
+                          <h6 class="card-subtitle mb-2">Job Category</h6>
                           <p class="card-text">With supporting text below as a natural lead-in to additional content.
                           </p>
-                          <a href="#" class="btn btn-success">Edit Post</a>
-                          <a href="#" class="btn btn-danger">Delete Post</a>
                         </div>
                       </div>
                     </div>
@@ -119,11 +130,9 @@
                         <div class="card-body">
                           <h5 class="card-title">Title</h5>
                           <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
-                          <h6 class="card-subtitle mb-2">Bid Amount</h6>
+                          <h6 class="card-subtitle mb-2">Job Category</h6>
                           <p class="card-text">With supporting text below as a natural lead-in to additional content.
                           </p>
-                          <a href="#" class="btn btn-success">Edit Post</a>
-                          <a href="#" class="btn btn-danger">Delete Post</a>
                         </div>
                       </div>
                     </div>
