@@ -20,6 +20,20 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="stylesheets/style.css" rel="stylesheet">
 </head>
+    <head>
+        <title>Rennovation Bidder</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+        <script type="text/javascript" src="js/users.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="stylesheets/style.css" rel="stylesheet">
+      </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -54,15 +68,42 @@
 
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                    <label class="custom-control-label" for="customCheck2">Kitchen</label>
+                                    <label class="custom-control-label" for="customCheck2">Plumbing</label>
                                 </div>
 
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                    <label class="custom-control-label" for="customCheck3">Landscaping</label>
+                                    <label class="custom-control-label" for="customCheck3">Electrical</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck4">
+                                    <label class="custom-control-label" for="customCheck4">Landscaping</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck5">
+                                    <label class="custom-control-label" for="customCheck5">General Construction</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck6">
+                                    <label class="custom-control-label" for="customCheck6">Roofing</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck7">
+                                    <label class="custom-control-label" for="customCheck7">HVAC</label>
                                 </div>
 
                             </div>
+
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Timeframe</label>
+                                <input type="text" name="daterange" value="" class="form-control"
+                                    id="formGroupExampleInput"/>
+                            </div>
+
                             <button type="button" class="btn btn-primary">Search</button>
                         </form>
                     </div>
@@ -86,6 +127,14 @@
                                                     additional content.</p>
                                                 
                                                   </div>
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control" placeholder="Bid Amount"
+                                                        aria-label="Recipient's username"
+                                                        aria-describedby="basic-addon2">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-success" type="button">Bid</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -98,6 +147,14 @@
                                                     additional content.</p>
                                                 
                                                   </div>
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control" placeholder="Bid Amount"
+                                                        aria-label="Recipient's username"
+                                                        aria-describedby="basic-addon2">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-success" type="button">Bid</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -110,8 +167,102 @@
            
                     
 
+                <div class="row">
+                    <div class="col mb-3">
+                        <div class="card m-3">
+                            <div class="card-body">
+                                <h3 class="mb-3">Bids Accepted</h3>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card w-75 mb-2">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <h6 class="card-subtitle">Bid Amount</h6>
+                                                <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
+                                                <p class="card-text">With supporting text below as a natural lead-in to
+                                                    additional content.</p>
+                                                <p class="card-text">Homeowner Contact Info</p>
+                                                <p class="card-text">Name</p>
+                                                <p class="card-text">Phone</p>
+                                                <p class="card-text">Email</p>
+                                                <a href="#" class="btn btn-primary acceptBtn">Accept</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card w-75 mb-2">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <h6 class="card-subtitle">Bid Amount</h6>
+                                                <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
+                                                <p class="card-text">With supporting text below as a natural lead-in to
+                                                    additional content.</p>
+                                                <p class="card-text">Homeowner Contact Info</p>
+                                                <a href="#" class="btn btn-primary">Message Homeowner</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
+
+                <div class="row">
+                    <div class="col mb-3">
+                        <div class="card m-3">
+                            <div class="card-body">
+                                <h3 class="mb-3">Pending Bids</h3>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Bid Amount</h5>
+                                                <h6 class="card-subtitle mb-2">Job Title</h6>
+                                                <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
+                                                <p class="card-text">With supporting text below as a natural lead-in
+                                                    to additional content.
+                                                </p>
+                                                <a href="#" class="btn btn-success">Edit Bid</a>
+                                                <a href="#" class="btn btn-danger">Delete Bid</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Bid Amount</h5>
+                                                <h6 class="card-subtitle mb-2">Job Title</h6>
+                                                <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
+                                                <p class="card-text">With supporting text below as a natural lead-in
+                                                    to additional content.
+                                                </p>
+                                                <a href="#" class="btn btn-success">Edit Bid</a>
+                                                <a href="#" class="btn btn-danger">Delete Bid</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <script>
+                $(function () {
+                    $('input[name="daterange"]').daterangepicker({
+                        opens: 'left'
+                    }, function (start, end, label) {
+                        console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+                    });
+                });
+            </script>
 
 </body>
 

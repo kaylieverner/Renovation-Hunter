@@ -8,10 +8,16 @@ $(document).ready(function() {
 
 
 //when user clicks create, write job post info to database 
+//figure out if a user or contractor is logged in to show correct html page 
+
+//when user clicks create, post job info to database 
 
 //when user clicks create, append the job post to the jobs pending card 
 
-//when user wants to edit a post, bring up the job post info 
+//when user wants to edit a post, bring up the job post info based on id 
 
 //when user clicks delete post, remove data from database and remove card 
 
+//if user accepts bid, update bid amount in database and remove job post 
+
+//update next card for job bids 
