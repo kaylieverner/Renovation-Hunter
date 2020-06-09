@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
+​
 <head>
-  <title>Passport Authentication</title>
+  <title>Rennovation Bidder</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
-
+​
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Rennovation Bidder</a>
@@ -17,7 +17,7 @@
       aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+​
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item">
@@ -29,10 +29,10 @@
       </ul>
     </div>
   </nav>
-
+​
   <div class="container">
     <div class="row">
-      <div class="col-md-6 mt-5">
+      <div class="col-9 mt-5">
         <h2 class="mb-5">Sign Up Form</h2>
         <form>
           <fieldset class="form-group">
@@ -42,7 +42,7 @@
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="gridRadios" id="radioUser" value="option1" checked>
                   <label class="form-check-label" for="gridRadios1">
-                    User
+                    Homeowner
                   </label>
                 </div>
                 <div class="form-check">
@@ -107,18 +107,20 @@
               <button type="submit" class="btn btn-primary" id="signUpBtn">Sign Up</button>
             </form>
           </div>
-
+​
           <div id="form_sub_containerContractor" style="display: none;">
             <form id="contractorForm" class="hide">
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputFirstName">First Name</label>
-                  <input type="text" class="form-control" id="inputFirstName">
+                  <label for="inputCompanyName">Company Name</label>
+                  <input type="text" class="form-control" id="inputCompanyName">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputLastName">Last Name</label>
-                  <input type="text" class="form-control" id="inputLastName">
+                  <label for="inputLicenseNum">License Number</label>
+                  <input type="text" class="form-control" id="inputLicenseNum">
                 </div>
+              </div>
+              <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputEmail">Email</label>
                   <input type="email" class="form-control" id="inputEmail">
@@ -156,16 +158,7 @@
                   <input type="text" class="form-control" id="inputZip">
                 </div>
               </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputCompanyName">Company Name</label>
-                  <input type="text" class="form-control" id="inputCompanyName">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputLicenseNum">License Number</label>
-                  <input type="text" class="form-control" id="inputLicenseNum">
-                </div>
-              </div>
+             
               
               <button type="submit" class="btn btn-primary" id="signUpBtn">Sign Up</button>
             </form>
@@ -173,14 +166,14 @@
    </div>
         
         <br />
-        <p>Or log in <a href="/login">here</a></p>
+        <p>Existing Users LOGIN <a href="/login">HERE</a></p>
       </div>
     </div>
   </div>
-
+​
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/signup.js"></script>
-
+​
 </body>
-
+​
 </html>
