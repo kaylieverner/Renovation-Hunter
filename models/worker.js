@@ -17,14 +17,6 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     phoneNumber: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -32,10 +24,26 @@ module.exports = function (sequelize, DataTypes) {
         len: [10]
       }
     },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    zip: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     companyName: {
       type: DataTypes.STRING,
     },
-    licenseNumber: {
+    licenseNum: {
       type: DataTypes.STRING
     }
   });

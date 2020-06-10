@@ -1,20 +1,22 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-unused-vars */
 $(document).ready(function () {
   // Getting references to our form and input
 
   var signUpBtn = $('#signUpBtn');
-  var firstName = $('#inputFirstName');
-  var lastName = $('#inputLastName');
-  var email = $('#inputEmail');
-  var password = $('#inputPassword');
-  var phoneNum = $('#inputPhoneNum');
-  var address = $('#inputAddress');
-  var city = $('#inputCity');
-  var state = $('#inputState');
-  var zip = $('#inputZip');
+  var firstName = $('input#inputFirstName');
+  var lastName = $('input#inputLastName');
+  var email = $('input#inputEmail');
+  var password = $('input#inputPassword');
+  var phoneNum = $('input#inputPhoneNum');
+  var address = $('input#inputAddress');
+  var city = $('input#inputCity');
+  var state = $('select#inputState');
+  var zip = $('input#inputZip');
   var radioUserBtn = $('#radioUser');
   var radioContractorBtn = $('#radioContractor');
-  var companyName = $('#inputCompanyName');
-  var licenseNum = $('#inputLicenseNum');
+  var companyName = $('input#inputCompanyName');
+  var licenseNum = $('input#inputLicenseNum');
   var contractorForm = $('#contractorForm');
   var userForm = $('#userForm');
 
@@ -38,7 +40,6 @@ $(document).ready(function () {
     $.post('/api/signup', {
       firstName: firstName,
       lastName: lastName,
-
       email: email,
       password: password,
       phoneNum: phoneNum,
@@ -46,8 +47,8 @@ $(document).ready(function () {
       city: city,
       state: state,
       zip: zip
-    })
-
+    });
+    
 
       .then(function (data) {
 
@@ -58,10 +59,8 @@ $(document).ready(function () {
       .catch(handleLoginErr);
   }
 
-  function signUpContractor(firstName, lastName, email, password, phoneNum, address, city, state, zip, companyName, licenseNum) {
+  function signUpContractor(email, password, phoneNum, address, city, state, zip, companyName, licenseNum) {
     $.post('/api/signup', {
-      firstName: firstName,
-      lastName: lastName,
       email: email,
       password: password,
       phoneNum: phoneNum,
@@ -80,7 +79,7 @@ $(document).ready(function () {
   }
 
   // When the signup button is clicked, we validate the email and password are not blank
-  signUpBtn.on('click', function (event) {
+  signUpBtn.on('submit', function (event) {
     event.preventDefault();
     var userData = {
       firstName: firstName.val().trim(),
@@ -93,10 +92,9 @@ $(document).ready(function () {
       state: state.val().trim(),
       zip: zip.val().trim()
     };
+    console.log(userData)
 
     var contractorData = {
-      firstName: firstName.val().trim(),
-      lastName: lastName.val().trim(),
       email: email.val().trim(),
       password: password.val().trim(),
       phoneNum: phoneNum.val().trim(),
@@ -128,9 +126,7 @@ $(document).ready(function () {
       state.val('');
       zip.val('');
     } else if (radioContractorBtn.checked) {
-      signUpContractor(contractorData.firstName, contractorData.lastName, contractorData.email, contractorData.password, contractorData.phoneNum, contractorData.address, contractorData.city, contractorData.state, contractorData.zip);
-      firstName.val('');
-      lastName.val('');
+      signUpContractor(contractorData.email, contractorData.password, contractorData.phoneNum, contractorData.address, contractorData.city, contractorData.state, contractorData.zip,contractor.companyName, contractor.licenseNum);
       email.val('');
       password.val('');
       phoneNum.val('');

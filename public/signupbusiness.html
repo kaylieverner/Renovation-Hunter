@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-  <title>Renovation Bidder</title>
   <title>Rennovation Bidder</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +11,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Rennovation Bidder</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
       aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,13 +112,15 @@
             <form id="contractorForm" class="hide">
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputFirstName">First Name</label>
-                  <input type="text" class="form-control" id="inputFirstName">
+                  <label for="inputCompanyName">Company Name</label>
+                  <input type="text" class="form-control" id="inputCompanyName">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputLastName">Last Name</label>
-                  <input type="text" class="form-control" id="inputLastName">
+                  <label for="inputLicenseNum">License Number</label>
+                  <input type="text" class="form-control" id="inputLicenseNum">
                 </div>
+              </div>
+              <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputEmail">Email</label>
                   <input type="email" class="form-control" id="inputEmail">
@@ -157,16 +158,7 @@
                   <input type="text" class="form-control" id="inputZip">
                 </div>
               </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputCompanyName">Company Name</label>
-                  <input type="text" class="form-control" id="inputCompanyName">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputLicenseNum">License Number</label>
-                  <input type="text" class="form-control" id="inputLicenseNum">
-                </div>
-              </div>
+             
               
               <button type="submit" class="btn btn-primary" id="signUpBtn">Sign Up</button>
             </form>
@@ -180,7 +172,7 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/signup.js"></script>
+  <script type="text/javascript" src="js/signupUser.js"></script>
 
 </body>
 
