@@ -37,6 +37,26 @@ module.exports = function(app) {
       });
   });
 
+
+  app.post('/api/signupbusiness', function(req, res) {
+    db.Worker.create({
+      email: req.body.email,
+      password: req.body.password,
+      phoneNum: req.body.phoneNum,
+      address: req.body.address,
+      city: req.body.city,
+      state: req.body.state,
+      zip: req.body.zip,
+      companyName: req.body.companyName,
+      licenseNum: req.body.licenseNum
+    })
+      .then(function() {
+        res.redirect(307, '/api/login');
+      })
+      .catch(function(err) {
+        res.status(401).json(err);
+      });
+  });
   // Route for logging user out
   app.get('/logout', function(req, res) {
     req.logout();
@@ -63,7 +83,7 @@ module.exports = function(app) {
     if (req.params.job) {
       // Display the JSON for ONLY that job.
 
-      Job.findOne({
+      Jobs.findOne({
         where: {
           title: req.params.job
         }
@@ -71,7 +91,7 @@ module.exports = function(app) {
         return res.json(result);
       });
     } else {
-      Job.findAll().then(function(result) {
+      Jobs.findAll().then(function(result) {
         return res.json(result);
       });
     }
@@ -82,7 +102,7 @@ module.exports = function(app) {
     if (req.params.jobType) {
       // Display the JSON for ONLY that job category.
 
-      Job.findOne({
+      Jobs.findOne({
         where: {
           category: req.params.jobType
         }
@@ -90,7 +110,7 @@ module.exports = function(app) {
         return res.json(result);
       });
     } else {
-      Job.findAll().then(function(result) {
+      Jobs.findAll().then(function(result) {
         return res.json(result);
       });
     }
