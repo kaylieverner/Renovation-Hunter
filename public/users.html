@@ -8,11 +8,12 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+ 
   <script type="text/javascript" src="js/users.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
@@ -42,11 +43,11 @@
             <form>
               <div class="form-group">
                 <label for="formGroupExampleInput">Title</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title">
+                <input type="text" class="form-control" id="title" placeholder="Title">
               </div>
               <div class="form-group">
                 <label for="inputState">Job Category</label>
-                <select id="inputState" class="form-control">
+                <select id="jobCat" class="form-control">
                   <option selected>Choose...</option>
                   <option>Plumbing</option>
                   <option>Electrical</option>
@@ -59,13 +60,13 @@
               </div>
               <div class="form-group">
                 <label for="formGroupExampleInput">Timeframe</label>
-                <input type="text" name="daterange" value="" class="form-control" id="formGroupExampleInput"/>
+                <input type="text" name="daterange" value="" class="form-control" id="timeframe"/>
               </div>
               <div class="form-group">
                 <label for="exampleFormControlTextarea2">Job Description</label>
-                <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"></textarea>
+                <textarea class="form-control rounded-0" id="jobDescription" rows="3"></textarea>
               </div>
-              <button type="button" class="btn btn-primary">Create</button>
+              <button type="button" class="btn btn-primary" id="createBtn">Create</button>
             </form>
           </div>
         </div>
@@ -78,8 +79,24 @@
             <div class="card">
               <div class="card-body">
                 <h3 class="mb-3">My Active Job Posts</h3>
+                <div class="activePosts">
+                  <!--active posts will append here-->
+                </div>
+                <!--example below-->
                 <div class="row">
-                  <div class="col-sm-6">
+                  <div class="col">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
+                        <h6 class="card-subtitle mb-2">Job Category</h6>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-success" id="editBtn">Edit Post</a>
+                        <a href="#" class="btn btn-danger" id="deleteBtn">Delete Post</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="col-sm-6">
                     <div class="card">
                       <div class="card-body">
                         <h5 class="card-title">Title</h5>
@@ -90,19 +107,7 @@
                         <a href="#" class="btn btn-danger">Delete Post</a>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title">Title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
-                        <h6 class="card-subtitle mb-2">Job Category</h6>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-success">Edit Post</a>
-                        <a href="#" class="btn btn-danger">Delete Post</a>
-                      </div>
-                    </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -113,6 +118,9 @@
               <div class="card m-3">
                 <div class="card-body">
                   <h3 class="mb-3">Jobs Completed</h3>
+                  <div class="completedPosts">
+                    <!--Completed job posts will append here-->
+                  </div>
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="card">
