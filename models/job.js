@@ -1,5 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
   var Job = sequelize.define('Job', {
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     category: {
       type: DataTypes.STRING,
       allowNull: false
@@ -25,7 +29,4 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
   return Job;
-};
-
-
 };
