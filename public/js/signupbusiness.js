@@ -29,7 +29,6 @@ $(document).ready(function () {
     };
     console.log(workerData);
 
-
     if (!workerData.email || !workerData.password) {
       return;
     }
