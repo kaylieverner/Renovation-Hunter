@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     description: {
       type: DataTypes.STRING(500),
-      allowNull: false
+      // allowNull: false
     },
     timeframe: {
       type: DataTypes.STRING,

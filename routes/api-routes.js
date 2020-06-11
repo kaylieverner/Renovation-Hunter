@@ -45,7 +45,8 @@ module.exports = function(app) {
       title: req.body.title,
       category: req.body.category,
       description: req.body.jobDescription,
-      timeframe: req.body.timeframe
+      timeframe: req.body.timeframe,
+      UserId: "1" //Need to update
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -82,7 +83,12 @@ module.exports = function(app) {
   app.post('/api/signup', function(req, res) {
     db.User.create({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      phoneNumber: req.body.phoneNumber,
+      address: req.body.address
+
     })
       .then(function() {
         res.redirect(307, '/api/login');
