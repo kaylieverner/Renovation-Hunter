@@ -60,7 +60,7 @@ $(document).ready(function() {
       zip: zip
     })
 
- 
+
 
       .then(function(data) {
         window.location.replace('/members');

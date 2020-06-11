@@ -79,40 +79,40 @@ module.exports = function(app) {
   });
 
   // Route for searching listings
-  app.get('/api/:job?', function(req, res) {
-    if (req.params.job) {
-      // Display the JSON for ONLY that job.
+  // app.get('/api/:job?', function(req, res) {
+  //   if (req.params.job) {
+  //     // Display the JSON for ONLY that job.
 
-      Jobs.findOne({
-        where: {
-          title: req.params.job
-        }
-      }).then(function(result) {
-        return res.json(result);
-      });
-    } else {
-      Jobs.findAll().then(function(result) {
-        return res.json(result);
-      });
-    }
-  });
+  //     Jobs.findOne({
+  //       where: {
+  //         title: req.params.job
+  //       }
+  //     }).then(function(result) {
+  //       return res.json(result);
+  //     });
+  //   } else {
+  //     Jobs.findAll().then(function(result) {
+  //       return res.json(result);
+  //     });
+  //   }
+  // });
 
-  // Route for searching job by catergory
-  app.get('/api/:jobType?', function(req, res) {
-    if (req.params.jobType) {
-      // Display the JSON for ONLY that job category.
+  // // Route for searching job by catergory
+  // app.get('/api/:jobType?', function(req, res) {
+  //   if (req.params.jobType) {
+  //     // Display the JSON for ONLY that job category.
 
-      Jobs.findOne({
-        where: {
-          category: req.params.jobType
-        }
-      }).then(function(result) {
-        return res.json(result);
-      });
-    } else {
-      Jobs.findAll().then(function(result) {
-        return res.json(result);
-      });
-    }
-  });
+  //     Jobs.findOne({
+  //       where: {
+  //         category: req.params.jobType
+  //       }
+  //     }).then(function(result) {
+  //       return res.json(result);
+  //     });
+  //   } else {
+  //     Jobs.findAll().then(function(result) {
+  //       return res.json(result);
+  //     });
+  //   }
+  // });
 };
