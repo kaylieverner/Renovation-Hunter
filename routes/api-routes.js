@@ -8,6 +8,8 @@ module.exports = function(app) {
   // Otherwise the user will be sent an error
   app.post('/api/login', passport.authenticate('local'), function(req, res) {
     // Sending back a password, even a hashed password, isn't a good idea
+    console.log('hello user');
+    console.log(req.user);
     res.json({
       email: req.user.email,
       id: req.user.id
@@ -29,8 +31,15 @@ module.exports = function(app) {
       state: req.body.state,
       zip: req.body.zip
     })
-      .then(function() {
-        res.redirect(307, '/api/login');
+      .then(function(user) {
+        req.login(user, function(err) {
+          if (err) {
+            return next(err);
+          }
+          user.password = undefined;
+          res.json(user);
+        });
+
       })
       .catch(function(err) {
         res.status(401).json(err);
@@ -50,11 +59,18 @@ module.exports = function(app) {
       companyName: req.body.companyName,
       licenseNum: req.body.licenseNum
     })
-      .then(function() {
-        res.redirect(307, '/api/login');
+      .then(function(user) {
+        req.login(user, function(err) {
+          if (err) {
+            return next(err);
+          }
+          user.password = undefined;
+          res.json(user);
+        });
+
       })
       .catch(function(err) {
-        console.log(err)
+        console.log(err);
         res.status(401).json(err);
       });
   });
