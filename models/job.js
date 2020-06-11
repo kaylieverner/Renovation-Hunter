@@ -15,9 +15,6 @@ module.exports = function(sequelize, DataTypes) {
     timeline: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    bid: {
-      type: DataTypes.INTEGER
     }
   });
 

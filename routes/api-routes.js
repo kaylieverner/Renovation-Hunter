@@ -50,4 +50,28 @@ module.exports = function(app) {
       });
     }
   });
+  app.get('/api/jobs', function(req, res) {
+    if (!req.user) {
+      res.json({});
+    } else {
+      res.json({
+        title: req.job.title,
+        category: req.job.category,
+        description: req.json.description,
+        timeline: req.job.timeline
+      });
+    }
+  });
+  app.get('/api/jobs/:category', function(req,res) {
+    db.Job.findAll({
+      where: {
+        category: req.params.category
+      }
+    })
+      .then(function(jobs) {
+        res.json(jobs);
+      });
+  });
 };
+
+

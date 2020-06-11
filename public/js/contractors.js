@@ -52,7 +52,7 @@ $(document).ready(function(){
     if (categoryString) {
       categoryString = '/category' + categoryString;
     }
-    $.get('api/jobs' + categoryString, function(data) {
+    $.get('/api/jobs' + categoryString, function(data) {
       jobs = data;
       if (!jobs || !jobs.length) {
         displayEmpty();

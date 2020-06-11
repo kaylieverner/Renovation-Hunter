@@ -36,101 +36,31 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Find Jobs</h3>
-                        <form>
-                            <div class="form-group jobCategory">
-                                <label for="formGroupExampleInput">Category</label>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1">All</label>
-                                </div>
-
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                    <label class="custom-control-label" for="customCheck2">Plumbing</label>
-                                </div>
-
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                    <label class="custom-control-label" for="customCheck3">Electrical</label>
-                                </div>
-
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck4">
-                                    <label class="custom-control-label" for="customCheck4">Landscaping</label>
-                                </div>
-
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck5">
-                                    <label class="custom-control-label" for="customCheck5">General Construction</label>
-                                </div>
-
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck6">
-                                    <label class="custom-control-label" for="customCheck6">Roofing</label>
-                                </div>
-
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck7">
-                                    <label class="custom-control-label" for="customCheck7">HVAC</label>
-                                </div>
-
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck8">
-                                    <label class="custom-control-label" for="customCheck8">Other</label>
-                                </div>
-
-                            </div>
-
-                            <div class="form-group">
-                                <label for="formGroupExampleInput">Timeframe</label>
-                                <input type="text" name="daterange" value="" class="form-control"
-                                    id="formGroupExampleInput"/>
-                            </div>
-
-                            <button type="button" class="btn btn-primary searchJobsBtn">Search</button>
-                        </form>
-                    </div>
+                <div class="form-group">
+                    <select class="custom-select" id="category">
+                      <option selected value="">All Categories</option>
+                      <option value="Plumbing">Plumbing</option>
+                      <option value="Electrical">Electrical</option>
+                      <option value="Landscaping">Landscaping</option>
+                      <option value="General Construction">General Construction</option>
+                      <option value="Roofing">Roofing</option>
+                      <option value="HVAC">HVAC</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Timeframe</label>
+                    <input type="text" name="daterange" value="" class="form-control"
+                        id="formGroupExampleInput"/>
                 </div>
+
+                <button type="button" class="btn btn-primary searchJobsBtn">Search</button>
+                
             </div>
 
             <div class="col-8">
 
                 <div class="row">
-                    <div class="col ml-3 mr-3 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="mb-3">Available Jobs</h3>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Title</h5>
-                                                <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
-                                                <h6 class="card-subtitle mb-2 text-muted">Job Category</h6>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>
-                                                    <a href="#" class="btn btn-primary acceptBtn">Message Homeowner</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Title</h5>
-                                                <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
-                                                <h6 class="card-subtitle mb-2 text-muted">Job Category</h6>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>
-                                                    <a href="#" class="btn btn-primary acceptBtn">Message Homeowner</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-md-12 jobContainer">
                     </div>
                 </div>
 
