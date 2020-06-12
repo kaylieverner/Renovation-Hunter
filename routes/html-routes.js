@@ -26,10 +26,6 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, '../public/postEditor.html'));
   });
 
-  app.get('/signup', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public/signup.html'));
-  });
-
   app.get('/users', function(req, res) {
     res.sendFile(path.join(__dirname, '../public/users.html'));
   });
