@@ -49,10 +49,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     }
   });
-<<<<<<< HEAD
 
-=======
->>>>>>> c3ea2124042b5a4af29a6fbbd5bf1cebe267818e
   User.associate = function(models) {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts

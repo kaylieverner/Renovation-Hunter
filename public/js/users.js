@@ -162,11 +162,9 @@ $(document).ready(function () {
     deletePost(currentPost.id);
   });
 
-<<<<<<< HEAD
 
 //when user clicks create, write job post info to database 
 //figure out if a user or contractor is logged in to show correct html page 
-=======
   editBtn.on('click', function() {
     var currentPost = $(this)
       .parent()
@@ -181,7 +179,6 @@ $(document).ready(function () {
       window.location.href = '/blog';
     });
   }
->>>>>>> bd02e619a97e01eb65cf920ed4eb3cc9a579cee8
 
   //when user clicks create, append the job post to the jobs pending card
 
