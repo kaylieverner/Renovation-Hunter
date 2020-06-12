@@ -1,6 +1,6 @@
 // Requiring our models and passport as we've configured it
-var db = require('../models');
 var passport = require('../config/passport');
+var db = require('../models/');
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -16,6 +16,69 @@ module.exports = function(app) {
     });
   });
 
+  // GET route for getting all of the posts
+  app.get('/api/posts', function(req, res) {
+    var query = {};
+    if (req.query.author_id) {
+      query.AuthorId = req.query.author_id;
+    }
+    db.Job.findAll({
+      where: query
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
+  // Get route for retrieving a single post
+  app.get('/api/posts/:id', function(req, res) {
+    db.Job.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbPost) {
+      console.log(dbPost);
+      res.json(dbPost);
+    });
+  });
+
+  //POST route for saving new job posts
+  app.post('/api/posts', function(req, res) {
+    db.Job.create({
+      title: req.body.title,
+      category: req.body.category,
+      description: req.body.jobDescription,
+      timeframe: req.body.timeframe,
+      UserId: "1" //Need to update
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
+  // DELETE route for deleting job posts
+  app.delete('/api/posts/:id', function(req, res) {
+    db.Job.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
+  // PUT route for updating job posts
+  app.put('/api/posts', function(req, res) {
+    db.Job.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
+
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
@@ -30,6 +93,9 @@ module.exports = function(app) {
       city: req.body.city,
       state: req.body.state,
       zip: req.body.zip
+      phoneNumber: req.body.phoneNumber,
+      address: req.body.address
+
     })
       .then(function(user) {
         req.login(user, function(err) {
