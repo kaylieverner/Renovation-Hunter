@@ -64,7 +64,7 @@ $(document).ready(function() {
 
       .then(function(data) {
         console.log(data);
-        window.location.replace('/members');
+        window.location.replace('/login');
       })
       .catch(handleLoginErr);
   }
