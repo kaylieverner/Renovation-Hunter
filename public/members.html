@@ -1,35 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
+   
   <title>Passport Authentication</title>
+<head>
+  <title>Rennovation Bidder</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+ 
+  <script type="text/javascript" src="js/users.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Rennovation Bidder</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      </ul>
     </div>
-  </div>
-</nav>
-  <div class="container">
+  </nav>
+
+  <div class="container mt-5">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
+      <div class="col-4">
+        <div class="card">
+          <div class="card-body">
+            <h3>Create a Job Post</h3>
+            <form>
+              <div class="form-group">
+                <label for="formGroupExampleInput">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Title">
+              </div>
+              <div class="form-group">
+                <label for="inputState">Job Category</label>
+                <select id="jobCat" class="form-control">
+                  <option selected>Choose...</option>
+                  <option>Plumbing</option>
+                  <option>Electrical</option>
+                  <option>Lanscaping</option>
+                  <option>General Construction</option>
+                  <option>Roofing</option>
+                  <option>HVAC</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="formGroupExampleInput">Timeframe</label>
+                <input type="text" name="daterange" value="" class="form-control" id="timeframe"/>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea2">Job Description</label>
+                <textarea class="form-control rounded-0" id="jobDescription" rows="3"></textarea>
+              </div>
+              <button type="button" class="btn btn-primary" id="createBtn">Create</button>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
+
+
+  <div class="container mt-5">
+    <div id="form_container">
+      <div id="form_sub_containerUser" style="display: block;">
+        <form id="contractorForm" class="hide">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputFirstName">Title of Job</label>
+              <input type="text" class="form-control" id="inputFirstName">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputLastName">Desired Start Date</label>
+              <input type="text" class="form-control" id="inputLastName">
+            </div>
+          
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">Brief Description of Job</label>
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputState">Job Category</label>
+              <select id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option>Plumbing</option>
+                <option>Electrical</option>
+                <option>Lanscaping</option>
+                <option>General Construction</option>
+                <option>Roofing</option>
+                <option>HVAC</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" id="signUpBtn">Submit</button>
+        </form>
+      </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/members.js"></script>
+  <script type="text/javascript" src="js/users.js"></script>
+=======
+      <div class="col-8">
+
+        <div class="row">
+          <div class="col mb-3">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="mb-3">My Active Job Posts</h3>
+                <div class="activePosts">
+                  <!--active posts will append here-->
+                </div>
+                <!--example below-->
+                <div class="row">
+                  <div class="col">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
+                        <h6 class="card-subtitle mb-2">Job Category</h6>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-success" id="editBtn">Edit Post</a>
+                        <a href="#" class="btn btn-danger" id="deleteBtn">Delete Post</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
+                        <h6 class="card-subtitle mb-2">Job Category</h6>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-success">Edit Post</a>
+                        <a href="#" class="btn btn-danger">Delete Post</a>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col mb-3">
+              <div class="card m-3">
+                <div class="card-body">
+                  <h3 class="mb-3">Jobs Completed</h3>
+                  <div class="completedPosts">
+                    <!--Completed job posts will append here-->
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Title</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
+                          <h6 class="card-subtitle mb-2">Job Category</h6>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Title</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
+                          <h6 class="card-subtitle mb-2">Job Category</h6>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <script>
+          $(function() {
+            $('input[name="daterange"]').daterangepicker({
+              opens: 'left'
+            }, function(start, end, label) {
+              console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            });
+          });
+          </script>
+
 
 </body>
+
+
 
 </html>
