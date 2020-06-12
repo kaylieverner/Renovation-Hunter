@@ -19,31 +19,31 @@ $(document).ready(function () {
   var activeJobPostContainer = $('.activePosts');
   var jobsCompletedContainer = $('.completedPosts');
 
-  // The code below handles the case where we want to get blog posts for a specific author
-  // Looks for a query param in the url for author_id
+  // The code below handles the case where we want to get blog posts for a specific user
+  // Looks for a query param in the url for user_id
   var url = window.location.search;
   var postId;
-  var authorId;
+  var userId;
   var updating = false;
-  if (url.indexOf('?author_id=') !== -1) {
-    authorId = url.split('=')[1];
-    getPosts(authorId);
+  if (url.indexOf('?user_id=') !== -1) {
+    userId = url.split('=')[1];
+    getPosts(userId);
   }
-  // If there's no authorId we just get all posts as usual
+  // If there's no userId we just get all posts as usual
   else {
     getPosts();
   }
 
-  function getPosts(author) {
-    authorId = author || '';
-    if (authorId) {
-      authorId = '/?author_id=' + authorId;
+  function getPosts(user) {
+    userId = user || '';
+    if (userId) {
+      userId = '/?user_id=' + userId;
     }
-    $.get('/api/posts' + authorId, function(data) {
+    $.get('/api/posts' + userId, function(data) {
       console.log('Posts', data);
       posts = data;
       if (!posts || !posts.length) {
-        displayEmpty(author);
+        displayEmpty(user);
       } else {
         initializeRows();
         initializeRowsCompletedJobs();
@@ -195,7 +195,7 @@ $(document).ready(function () {
   //when user clicks create, create new post
   createBtn.on('click', function createPost(event) {
     event.preventDefault();
-    // Wont submit the post if we are missing a body, title, or author
+    // Wont submit the post if we are missing a body, title, or user
     if (!title.val().trim() || !category.val().trim() || !jobDescription.val()) {
       return;
     }
