@@ -1,8 +1,9 @@
 $(document).ready(function(){
   var acceptBtn = $('.acceptBtn');
   var jobContainer = $('.jobContainer');
-  var searchBtn = $('.searchJobsBtn');
-
+  var jobCategorySelect = $('#category');
+  // eslint-disable-next-line no-use-before-define
+  jobCategorySelect.on('change', handleCategoryChange);
   var jobs;
 
   function createNewRow(job) {
@@ -42,17 +43,13 @@ $(document).ready(function(){
   function displayEmpty() {
     jobContainer.empty();
     var noJobMessage = $('<h2');
-    noJobMessage.html('No jobs yet for this category, navigate <a href=\'/contractors\'>here</a> in order to search again.');
+    noJobMessage.html('No jobs posted for this category');
     jobContainer.append(noJobMessage);
   }
 
-  //get jobs by category.  Referencing api/jobs/category/chosen category
+  //get jobs by category.  Referencing api/jobs/chosen category
   function getJobs(category) {
-    var categoryString = category || '';
-    if (categoryString) {
-      categoryString = '/category' + categoryString;
-    }
-    $.get('/api/jobs' + categoryString, function(data) {
+    $.get('/api/jobs/' + category, function(data) {
       jobs = data;
       if (!jobs || !jobs.length) {
         displayEmpty();
@@ -62,7 +59,10 @@ $(document).ready(function(){
     });
   }
 
-  searchBtn.on('click', getJobs);
+  function handleCategoryChange() {
+    var newJobCategory = $(this).val();
+    getJobs(newJobCategory);
+  }
 
   //upon clicking accept, change to accepted button that is greyed out
   acceptBtn.on('click', function() {
@@ -71,6 +71,8 @@ $(document).ready(function(){
     acceptBtn.html('Accepted');
   });
 });
+
+getJobs();
 
 
 
