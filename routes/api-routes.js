@@ -8,6 +8,8 @@ module.exports = function(app) {
   // Otherwise the user will be sent an error
   app.post('/api/login', passport.authenticate('local'), function(req, res) {
     // Sending back a password, even a hashed password, isn't a good idea
+    console.log('hello user');
+    console.log(req.user);
     res.json({
       email: req.user.email,
       id: req.user.id
@@ -46,7 +48,7 @@ module.exports = function(app) {
       category: req.body.category,
       description: req.body.jobDescription,
       timeframe: req.body.timeframe,
-      UserId: "1" //Need to update
+      UserId: '1' //Need to update
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -86,18 +88,56 @@ module.exports = function(app) {
       password: req.body.password,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      phoneNumber: req.body.phoneNumber,
-      address: req.body.address
+      phoneNum: req.body.phoneNum,
+      address: req.body.address,
+      city: req.body.city,
+      state: req.body.state,
+      zip: req.body.zip
 
     })
-      .then(function() {
-        res.redirect(307, '/api/login');
+      .then(function(user) {
+        req.login(user, function(err) {
+          if (err) {
+            return next(err);
+          }
+          user.password = undefined;
+          res.json(user);
+        });
+
       })
       .catch(function(err) {
         res.status(401).json(err);
       });
   });
 
+
+  app.post('/api/signupbusiness', function(req, res) {
+    db.Worker.create({
+      email: req.body.email,
+      password: req.body.password,
+      phoneNum: req.body.phoneNum,
+      address: req.body.address,
+      city: req.body.city,
+      state: req.body.state,
+      zip: req.body.zip,
+      companyName: req.body.companyName,
+      licenseNum: req.body.licenseNum
+    })
+      .then(function(user) {
+        req.login(user, function(err) {
+          if (err) {
+            return next(err);
+          }
+          user.password = undefined;
+          res.json(user);
+        });
+
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.status(401).json(err);
+      });
+  });
   // Route for logging user out
   app.get('/logout', function(req, res) {
     req.logout();
@@ -118,4 +158,42 @@ module.exports = function(app) {
       });
     }
   });
+
+  // Route for searching listings
+  // app.get('/api/:job?', function(req, res) {
+  //   if (req.params.job) {
+  //     // Display the JSON for ONLY that job.
+
+  //     Jobs.findOne({
+  //       where: {
+  //         title: req.params.job
+  //       }
+  //     }).then(function(result) {
+  //       return res.json(result);
+  //     });
+  //   } else {
+  //     Jobs.findAll().then(function(result) {
+  //       return res.json(result);
+  //     });
+  //   }
+  // });
+
+  // // Route for searching job by catergory
+  // app.get('/api/:jobType?', function(req, res) {
+  //   if (req.params.jobType) {
+  //     // Display the JSON for ONLY that job category.
+
+  //     Jobs.findOne({
+  //       where: {
+  //         category: req.params.jobType
+  //       }
+  //     }).then(function(result) {
+  //       return res.json(result);
+  //     });
+  //   } else {
+  //     Jobs.findAll().then(function(result) {
+  //       return res.json(result);
+  //     });
+  //   }
+  // });
 };

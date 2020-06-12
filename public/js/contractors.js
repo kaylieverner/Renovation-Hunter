@@ -1,7 +1,7 @@
 $(document).ready(function(){
   var acceptBtn = $('.acceptBtn');
 
-  //query available jobs card based on selection the user makes
+  //query available jobs card based on selection the user makes.  - dropdown menu, date search, keyword search.//
 
   //all posts
   function getPosts() {
@@ -18,6 +18,7 @@ $(document).ready(function(){
     acceptBtn.addClass('disabled');
     acceptBtn.html('Accepted');
   });
+
 
  
 });
