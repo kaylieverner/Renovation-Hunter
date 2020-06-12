@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+  <head>
+   
+  <title>Passport Authentication</title>
 <head>
   <title>Rennovation Bidder</title>
   <meta charset="UTF-8">
@@ -72,6 +75,47 @@
         </div>
       </div>
 
+
+  <div class="container mt-5">
+    <div id="form_container">
+      <div id="form_sub_containerUser" style="display: block;">
+        <form id="contractorForm" class="hide">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputFirstName">Title of Job</label>
+              <input type="text" class="form-control" id="inputFirstName">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputLastName">Desired Start Date</label>
+              <input type="text" class="form-control" id="inputLastName">
+            </div>
+          
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">Brief Description of Job</label>
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputState">Job Category</label>
+              <select id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option>Plumbing</option>
+                <option>Electrical</option>
+                <option>Lanscaping</option>
+                <option>General Construction</option>
+                <option>Roofing</option>
+                <option>HVAC</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" id="signUpBtn">Submit</button>
+        </form>
+      </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/users.js"></script>
+=======
       <div class="col-8">
 
         <div class="row">
@@ -161,6 +205,7 @@
             });
           });
           </script>
+
 
 </body>
 

@@ -162,6 +162,9 @@ $(document).ready(function () {
     deletePost(currentPost.id);
   });
 
+
+//when user clicks create, write job post info to database 
+//figure out if a user or contractor is logged in to show correct html page 
   editBtn.on('click', function() {
     var currentPost = $(this)
       .parent()
