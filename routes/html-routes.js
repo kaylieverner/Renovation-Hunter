@@ -11,39 +11,39 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect('/login');
     }
-    res.sendFile(path.join(__dirname, '../public/stylesheets.signup.html'));
+    res.sendFile(path.join(__dirname, '../public/signup.html'));
   });
 
   app.get('/contractors', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public/stylesheets/contractors.html'));
+    res.sendFile(path.join(__dirname, '../public/contractors.html'));
   });
 
   app.get('/login', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public/stylesheets/login.html'));
+    res.sendFile(path.join(__dirname, '../public/login.html'));
   });
 
   app.get('/postEditor', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public/stylesheets/postEditor.html'));
+    res.sendFile(path.join(__dirname, '../public/postEditor.html'));
   });
 
   app.get('/signup', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public/stylesheets/signup.html'));
+    res.sendFile(path.join(__dirname, '../public/signup.html'));
   });
 
   app.get('/users', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public/stylesheets/users.html'));
+    res.sendFile(path.join(__dirname, '../public/users.html'));
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get('/users', isAuthenticated, function(req, res) {
 
-    res.sendFile(path.join(__dirname, '../public/stylesheets/users.html'));
+    res.sendFile(path.join(__dirname, '../public/users.html'));
   });
 
   app.get('/contractors', isAuthenticated, function(req, res) {
 
-    res.sendFile(path.join(__dirname, '../public/stylesheets/contractors.html'));
+    res.sendFile(path.join(__dirname, '../public/contractors.html'));
   });
 
 };
