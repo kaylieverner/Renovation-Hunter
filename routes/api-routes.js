@@ -8,8 +8,6 @@ module.exports = function (app) {
   // Otherwise the user will be sent an error
   app.post('/api/login', passport.authenticate('local'), function (req, res) {
     // Sending back a password, even a hashed password, isn't a good idea
-    console.log('hello user');
-    console.log(req.user);
     res.json({
       email: req.user.email,
       id: req.user.id
@@ -82,7 +80,7 @@ module.exports = function (app) {
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
-  app.post('/api/signup', function (req, res) {
+  app.post('/api/signupuser', function (req, res) {
     db.User.create({
       email: req.body.email,
       password: req.body.password,
@@ -158,6 +156,22 @@ module.exports = function (app) {
       });
     }
   });
+  app.get('/api/workers', function(req, res) {
+    db.Author.findAll({}).then(function(dbWorker) {
+      res.json(dbWorker);
+    });
+  });
+
+  app.get('/api/authors/:id', function(req, res) {
+    db.Worker.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbWorker) {
+      res.json(dbWorker);
+    });
+  });
+
 
   // Route for searching listings
   // app.get('/api/:job?', function(req, res) {
