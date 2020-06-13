@@ -1,4 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
+ 
   var Job = sequelize.define('Job', {
     title: {
       type: DataTypes.STRING,
@@ -10,9 +11,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     description: {
       type: DataTypes.STRING(500),
-      allowNull: false
+      // allowNull: false
     },
-    timeline: {
+    timeframe: {
       type: DataTypes.STRING,
       allowNull: false
     }
