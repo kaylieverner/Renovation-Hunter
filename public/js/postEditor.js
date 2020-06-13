@@ -29,3 +29,5 @@ function updatePost(post) {
     window.location.href = '/users';
   });
 }
+
+updatePost();
