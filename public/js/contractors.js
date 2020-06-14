@@ -7,7 +7,6 @@ $(document).ready(function(){
   $(document).on('click', 'button.info', handleInfo);
   jobCategorySelect.on('change', handleCategoryChange);
   var jobs;
-
   function getJobs(category) {
     var categoryString = category || '';
     if (categoryString) {
@@ -22,9 +21,7 @@ $(document).ready(function(){
       }
     });
   }
-
   getJobs();
-
   function initializeRows() {
     jobContainer.empty();
     var jobsToAdd = [];
@@ -33,7 +30,6 @@ $(document).ready(function(){
     }
     jobContainer.append(jobsToAdd);
   }
-
   function createNewRow(job) {
     var jobCard = $('<div>');
     jobCard.addClass('card');
@@ -62,7 +58,6 @@ $(document).ready(function(){
     jobCard.data('job', job);
     return jobCard;
   }
-
   function handleInfo() {
     var currentJob = $(this)
       .parent()
@@ -76,7 +71,6 @@ $(document).ready(function(){
         populateHomeownerData(data);
       });
   }
-
   function populateHomeownerData(user) {
     jobContainer.empty();
     infoContainer.empty();
@@ -111,14 +105,12 @@ $(document).ready(function(){
     userCard.data('user', user);
     return userCard;
   }
-
   function displayEmpty() {
     jobContainer.empty();
     var noJobMessage = $('<h2>');
     noJobMessage.html('No jobs posted for this category');
     jobContainer.append(noJobMessage);
   }
-
   function handleCategoryChange() {
     containerHeader.text('Available Jobs');
     infoContainer.empty();
@@ -126,10 +118,3 @@ $(document).ready(function(){
     getJobs(newJobCategory);
   }
 });
-
-
-
-
-
-
-
