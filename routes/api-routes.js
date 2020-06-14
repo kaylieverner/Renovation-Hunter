@@ -159,19 +159,37 @@ module.exports = function (app) {
 
   app.get('/api/jobs/', function(req, res) {
     db.Job.findAll()
-      .then(function(jobs) {
-        res.json(jobs);
+      .then(function(dbJob) {
+        res.json(dbJob);
       });
   });
 
-  app.get('/api/jobs/:category', function(req,res) {
+  app.get('/api/jobs/category/:category', function(req, res) {
     db.Job.findAll({
       where: {
         category: req.params.category
       }
     })
-      .then(function(jobs) {
-        res.json(jobs);
+      .then(function(dbJob) {
+        res.json(dbJob);
+      });
+  });
+
+  app.get('/api/users/', function (req, res) {
+    db.User.findAll()
+      .then(function(dbUser) {
+        res.json(dbUser);
+      });
+  });
+
+  app.get('/api/users/user/:userId', function(req, res) {
+    db.User.findOne({
+      where: {
+        id: req.params.userId
+      }
+    })
+      .then(function(dbUser) {
+        res.json(dbUser);
       });
   });
 };

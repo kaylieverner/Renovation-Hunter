@@ -32,11 +32,7 @@ module.exports = function (sequelize, DataTypes) {
         len : [10,10]
       }
     },
-    houseNumber: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    streetName: {
+    address: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -54,10 +50,6 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         len: [5,5]
       }
-    },
-    address: {
-      type: DataTypes.STRING,
-      allowNull: false
     }
   });
 
