@@ -32,90 +32,32 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Find Jobs</h3>
-                        <select class="custom-select" id="category">
-                            <option selected value="">All Categories</option>
-                            <option value="Plumbing">Plumbing</option>
-                            <option value="Electrical">Electrical</option>
-                            <option value="Landscaping">Landscaping</option>
-                            <option value="General Construction">General Construction</option>
-                            <option value="Roofing">Roofing</option>
-                            <option value="HVAC">HVAC</option>
-                        </select>
-                    </div>
+                <h5>Choose a job category</h5>
+                <div class="form-group">
+                    <select class="custom-select" id="category">
+                      <option selected value="">All Categories</option>
+                      <option value="Plumbing">Plumbing</option>
+                      <option value="Electrical">Electrical</option>
+                      <option value="Landscaping">Landscaping</option>
+                      <option value="General Construction">General Construction</option>
+                      <option value="Roofing">Roofing</option>
+                      <option value="HVAC">HVAC</option>
+                      <option value="Other">Other</option>
+                    </select>
                 </div>
             </div>
             <div class="col-8">
+                <h3 id ="containerHeader">Available Jobs</h3>
                 <div class="row">
-                    <div class="col ml-3 mr-3 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="mb-3">Available Jobs</h3>
-                                <div class="row">
-                                    <div class="col-md-12 job-container">
-                                        <div/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="col-md-12 jobContainer"></div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col mb-3">
-                    <div class="card m-3">
-                        <div class="card-body">
-                            <h3 class="mb-3">Homeowner Contact Information</h3>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card w-75 mb-2">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <h6 class="card-subtitle">Job Category</h6>
-                                            <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
-                                            <p class="card-text">With supporting text below as a natural lead-in to
-                                                additional content.</p>
-                                            <p class="card-text">Homeowner Contact Info</p>
-                                            <p class="card-text">Name</p>
-                                            <p class="card-text">Phone</p>
-                                            <p class="card-text">Email</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card w-75 mb-2">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <h6 class="card-subtitle">Job Category</h6>
-                                            <h6 class="card-subtitle mb-2 text-muted">Timeframe</h6>
-                                            <p class="card-text">With supporting text below as a natural lead-in to
-                                                additional content.</p>
-                                            <p class="card-text">Homeowner Contact Info</p>
-                                            <p class="card-text">Name</p>
-                                            <p class="card-text">Phone</p>
-                                            <p class="card-text">Email</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row">
+                    <div class="col-md-12 infoContainer"></div>
                 </div>
+                <a id="refreshLink" class="nav-link" href="/contractors">Click to see all available jobs</a>
             </div>
         </div>
-        <script>
-            $(function () {
-                $('input[name="daterange"]').daterangepicker({
-                    opens: 'left'
-                }, function (start, end, label) {
-                    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-                });
-            });
-        </script>
+    </div>
         <script src="js/contractors.js" type="text/javascript"></script>
 </body>
 </html>
