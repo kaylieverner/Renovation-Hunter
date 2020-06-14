@@ -14,10 +14,6 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, '../public/homepage.html'));
   });
 
-  app.get('/contractors', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public/contractors.html'));
-  });
-
   app.get('/login', function(req, res) {
     res.sendFile(path.join(__dirname, '../public/login.html'));
   });
