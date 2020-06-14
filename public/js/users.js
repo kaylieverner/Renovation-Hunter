@@ -208,14 +208,14 @@ $(document).ready(function () {
     console.log(currentPost);
     deletePost(currentPost.id);
   });
-  
-  $(document).on("click", "button.edit", handlePostEdit);
+
+  $(document).on('click', 'button.edit', handlePostEdit);
   function handlePostEdit() {
     var currentPost = $(this)
       .parent()
       .parent()
-      .data("job");
-    window.location.href = "/postEditor?post_id=" + currentPost.id;
+      .data('job');
+    window.location.href = '/postEditor?job_id=' + currentPost.id;
   }
 
 

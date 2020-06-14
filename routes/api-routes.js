@@ -111,16 +111,16 @@ module.exports = function (app) {
   });
 
   // Get route for retrieving a single post
-  app.get('/api/posts/:id', function (req, res) {
-    db.Job.findOne({
-      where: {
-        id: req.params.id
-      }
-    }).then(function (dbPost) {
-      console.log(dbPost);
-      res.json(dbPost);
-    });
-  });
+  // app.get('/api/posts/:id', function (req, res) {
+  //   db.Job.findOne({
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   }).then(function (dbPost) {
+  //     console.log(dbPost);
+  //     res.json(dbPost);
+  //   });
+  // });
 
   //POST route for saving new job posts
 
@@ -245,6 +245,34 @@ module.exports = function (app) {
         id: req.params.id
       }
     }).then(function (dbPost) {
+      res.json(dbPost);
+    });
+  });
+
+  app.get('/api/jobs/:id', function(req, res) {
+    // 2. Add a join here to include the Author who wrote the Post
+    db.Job.findOne({
+      // include: [{
+      //   model: db.User
+      // }],
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbPost) {
+      console.log(dbPost);
+      res.json(dbPost);
+    });
+  });
+  app.put('/api/jobs', function(req, res) {
+    db.Job.update(
+      req.body, {
+        // include: [{
+        //   model: db.User
+        // }],
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbPost) {
       res.json(dbPost);
     });
   });
