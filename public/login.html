@@ -24,6 +24,14 @@
     <div class="row">
       <div class="col-md-6 mt-5">
         <h2>Log In</h2>
+        <div class="form-group">
+          <label for="inputState">Account Type</label>
+          <select id="acctType" class="form-control">
+            <option selected>Homeowner</option>
+            <option>Contractor</option>
+          </select>
+        </div>
+      </form>
         <form class="login">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
@@ -37,7 +45,7 @@
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
-          <button type="button" class="btn btn-primary">Log In</button>
+          <button type="submit" class="btn btn-primary">Log In</button>
         </form>
         <br />
         <p>Or sign up <a href="homepage.html">here</a></p>

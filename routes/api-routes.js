@@ -1,17 +1,28 @@
 // Requiring our models and passport as we've configured it
 var passport = require('../config/passport');
+
+// var passportWorker = require('../config/passportWorker');
 var db = require('../models/');
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
-  app.post('/api/login', passport.authenticate('local'), function (req, res) {
+  app.post('/api/loginuser', passport.authenticate('user'), function (req, res) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
       id: req.user.id
     });
+  });
+
+  app.post('/api/loginWorker', passport.authenticate('worker'), function (req, res) {
+    // Sending back a password, even a hashed password, isn't a good idea
+    res.json({
+      email: req.user.email,
+      id: req.user.id
+    });
+
   });
 
   // GET route for getting all of the posts
@@ -173,41 +184,4 @@ module.exports = function (app) {
   });
 
 
-  // Route for searching listings
-  // app.get('/api/:job?', function(req, res) {
-  //   if (req.params.job) {
-  //     // Display the JSON for ONLY that job.
-
-  //     Jobs.findOne({
-  //       where: {
-  //         title: req.params.job
-  //       }
-  //     }).then(function(result) {
-  //       return res.json(result);
-  //     });
-  //   } else {
-  //     Jobs.findAll().then(function(result) {
-  //       return res.json(result);
-  //     });
-  //   }
-  // });
-
-  // // Route for searching job by catergory
-  // app.get('/api/:jobType?', function(req, res) {
-  //   if (req.params.jobType) {
-  //     // Display the JSON for ONLY that job category.
-
-  //     Jobs.findOne({
-  //       where: {
-  //         category: req.params.jobType
-  //       }
-  //     }).then(function(result) {
-  //       return res.json(result);
-  //     });
-  //   } else {
-  //     Jobs.findAll().then(function(result) {
-  //       return res.json(result);
-  //     });
-  //   }
-  // });
 };
