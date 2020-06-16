@@ -224,13 +224,7 @@ module.exports = function (app) {
   });
 
   app.post('/api/posts', function (req, res) {
-    db.Job.create({
-      title: req.body.title,
-      category: req.body.category,
-      description: req.body.jobDescription,
-      timeframe: req.body.timeframe,
-      UserId: req.user.id
-    }).then(function (dbPost) {
+    db.Job.create(req.body).then(function (dbPost) {
       res.json(dbPost);
     });
   });
