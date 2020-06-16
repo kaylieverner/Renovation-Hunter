@@ -23,63 +23,7 @@ $(document).ready(function () {
   var postId;
   var userId;
   var updating = false;
-  // if (url.indexOf('?id=') !== -1) {
-  //   userId = url.split('=')[1];
-  //   getPosts(userId);
-  // }
-  // // If there's no userId we just get all posts as usual
-  // else {
-  //   getPosts();
-  // }
 
-
-  // function initializeRowsCompletedJobs() {
-  //   jobsCompletedContainer.empty();
-  //   var postsToAdd = [];
-  //   for (var i = 0; i <posts.length; i++) {
-  //     postsToAdd.push(createNewRowCompletedJobs(posts[i]));
-  //   }
-  //   jobsCompletedContainer.append(postsToAdd);
-  // }
-
-  // function createNewRowCompletedJobs(post) {
-  //   var newPostRow = $('<div>');
-  //   newPostRow.addClass('row');
-  //   newPostRow.append(newPostCol);
-  //   var newPostCol = $('<div>');
-  //   newPostCol.addClass('col');
-  //   newPostCol.append(newPostCard);
-  //   var newPostCard = $('<div>');
-  //   newPostCard.addClass('card-body');
-  //   var cardTitle = $('<h5>');
-  //   cardTitle.addClass('card-title');
-  //   cardTitle.text(post.title);
-  //   newPostCard.append(cardTitle);
-  //   var cardTimeframe = $('<h6>');
-  //   cardTimeframe.addClass('card-subtitle mb-2 text-muted');
-  //   cardTimeframe.text(post.timeframe);
-  //   newPostCard.append(cardTimeframe);
-  //   var cardJobCat = $('<h6>');
-  //   cardJobCat.addClass('card-subtitle mb-2');
-  //   cardJobCat.text(post.category);
-  //   newPostCard.append(cardJobCat);
-  //   var cardDescription = $('<p>');
-  //   cardDescription.addClass('card-text');
-  //   cardDescription.text(post.jobDescription);
-  //   newPostCard.append(cardDescription);
-  //   var cardEditBtn = $('<a>');
-  //   cardEditBtn.addClass('btn btn-success');
-  //   cardEditBtn.attr('id', 'editBtn');
-  //   cardEditBtn.text('Edit Post');
-  //   newPostCard.append(cardEditBtn);
-  //   var cardDelBtn = $('<a>');
-  //   cardDelBtn.addClass('btn btn-danger');
-  //   cardDelBtn.attr('id', 'deleteBtn');
-  //   cardDelBtn.text('Delete Post');
-  //   newPostCard.append(cardDelBtn);
-  //   return newPostRow;
-  // }
-  //delete post
   deleteBtn.on('click', function() {
     var currentPost = $(this)
       .parent()
@@ -117,6 +61,7 @@ $(document).ready(function () {
       category: category.val().trim(),
       timeframe: timeframe.val().trim(),
       jobDescription: jobDescription.val().trim(),
+
     };
     console.log(newPost);
     if (updating) {
