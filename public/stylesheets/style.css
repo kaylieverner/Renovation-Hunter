@@ -7,3 +7,12 @@ form.login {
 display: none;
 };
 
+.navbar-brand{
+  margin: 0;
+}
+.about{
+  text-align: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+}
