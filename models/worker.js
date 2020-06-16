@@ -32,12 +32,13 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    phoneNumber: {
-      type: DataTypes.DECIMAL(10),
-      allowNull: false,
-      validate: {
-        len : [10,10]
-      }
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    zip: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     companyName: {
       type: DataTypes.STRING,

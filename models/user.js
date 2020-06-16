@@ -25,11 +25,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    phoneNumber: {
-      type: DataTypes.DECIMAL(10),
+    phoneNum: {
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len : [10,10]
+        len: [10, 10]
       }
     },
     address: {
@@ -42,14 +42,11 @@ module.exports = function (sequelize, DataTypes) {
     },
     state: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
-    zipCode: {
-      type: DataTypes.DECIMAL(5),
-      allowNull: false,
-      validate: {
-        len: [5,5]
-      }
+    zip: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
 
