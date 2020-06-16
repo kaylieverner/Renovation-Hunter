@@ -174,7 +174,6 @@ module.exports = function (app) {
       });
     }
   });
-<<<<<<< HEAD
 
   app.get('/api/jobs/', function(req, res) {
     db.Job.findAll()
@@ -185,20 +184,9 @@ module.exports = function (app) {
 
   app.get('/api/jobs/category/:category', function(req, res) {
     db.Job.findAll({
-=======
-  app.get('/api/workers', function (req, res) {
-    db.Author.findAll({}).then(function (dbWorker) {
-      res.json(dbWorker);
-    });
-  });
-
-  app.get('/api/authors/:id', function (req, res) {
-    db.Worker.findOne({
->>>>>>> 761152abbbeeeca573f2e4425cff4b7c4a7bb297
       where: {
         category: req.params.category
       }
-<<<<<<< HEAD
     })
       .then(function(dbJob) {
         res.json(dbJob);
@@ -222,100 +210,6 @@ module.exports = function (app) {
         res.json(dbUser);
       });
   });
-=======
-    }).then(function (dbWorker) {
-      res.json(dbWorker);
-    });
-  });
-
-  app.get('/api/jobs/', function (req, res) {
-    db.Job.findAll()
-      .then(function (dbJob) {
-        res.json(dbJob);
-      });
-  });
-  app.get('/api/jobs/category/:category', function (req, res) {
-    db.Job.findAll({
-      where: {
-        category: req.params.category
-      }
-    })
-      .then(function (dbJob) {
-        res.json(dbJob);
-      });
-  });
-  app.get('/api/users/', function (req, res) {
-    db.User.findAll()
-      .then(function (dbUser) {
-        res.json(dbUser);
-      });
-  });
-  app.get('/api/users/user/:userId', function (req, res) {
-    db.User.findOne({
-      where: {
-        id: req.params.userId
-      }
-    })
-      .then(function (dbUser) {
-        res.json(dbUser);
-      });
-  });
-
-  app.post('/api/posts', function (req, res) {
-    db.Job.create({
-      title: req.body.title,
-      category: req.body.category,
-      description: req.body.jobDescription,
-      timeframe: req.body.timeframe,
-      UserId: req.user.id
-    }).then(function (dbPost) {
-      res.json(dbPost);
-    });
-  });
-
-  // DELETE route for deleting job posts
-  app.delete('/api/posts/:id', function (req, res) {
-    db.Job.destroy({
-      include: [{
-        model: db.User
-      }],
-      where: {
-        id: req.params.id
-      }
-    }).then(function (dbPost) {
-      res.json(dbPost);
-    });
-  });
-
-  app.get('/api/jobs/:id', function(req, res) {
-    // 2. Add a join here to include the Author who wrote the Post
-    db.Job.findOne({
-      // include: [{
-      //   model: db.User
-      // }],
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbPost) {
-      console.log(dbPost);
-      res.json(dbPost);
-    });
-  });
-  app.put('/api/jobs', function(req, res) {
-    db.Job.update(
-      req.body, {
-        // include: [{
-        //   model: db.User
-        // }],
-        where: {
-          id: req.body.id
-        }
-      }).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
-
->>>>>>> 761152abbbeeeca573f2e4425cff4b7c4a7bb297
 };
 
 
