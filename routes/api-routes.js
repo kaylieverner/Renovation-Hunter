@@ -174,21 +174,6 @@ module.exports = function (app) {
       });
     }
   });
-  app.get('/api/workers', function (req, res) {
-    db.Author.findAll({}).then(function (dbWorker) {
-      res.json(dbWorker);
-    });
-  });
-
-  app.get('/api/authors/:id', function (req, res) {
-    db.Worker.findOne({
-      where: {
-        id: req.params.id
-      }
-    }).then(function (dbWorker) {
-      res.json(dbWorker);
-    });
-  });
 
   app.get('/api/jobs/', function (req, res) {
     db.Job.findAll()

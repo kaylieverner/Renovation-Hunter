@@ -21,7 +21,6 @@ $(document).ready(function () {
   // Looks for a query param in the url for user_id
   var url = window.location.search;
   var postId;
-  var userId;
   var updating = false;
   // if (url.indexOf('?id=') !== -1) {
   //   userId = url.split('=')[1];
