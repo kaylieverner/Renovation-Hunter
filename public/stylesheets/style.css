@@ -16,3 +16,11 @@ display: none;
   margin-right: 50px;
   margin-top: 50px;
 }
+
+.business{
+  height: 300px;
+  width: 300px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
