@@ -1,17 +1,17 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-use-before-define */
 $(document).ready(function() {
-    // Getting references to our form and input
-    var signUpForm = $('form.signup');
-    var emailInput = $('input#email-input');
-    var passwordInput = $('input#password-input');
-    var firstName = $('input#inputFirstName');
-    var lastName = $('input#inputLastName');
-    var phoneNum = $('input#inputPhoneNum');
-    var address = $('input#inputAddress');
-    var city = $('input#inputCity');
-    var state = $('select#inputState');
-    var zip = $('input#inputZip');
+  // Getting references to our form and input
+  var signUpForm = $('form.signup');
+  var emailInput = $('input#email-input');
+  var passwordInput = $('input#password-input');
+  var firstName = $('input#inputFirstName');
+  var lastName = $('input#inputLastName');
+  var phoneNum = $('input#inputPhoneNum');
+  var address = $('input#inputAddress');
+  var city = $('input#inputCity');
+  var state = $('select#inputState');
+  var zip = $('input#inputZip');
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on('submit', function(event) {

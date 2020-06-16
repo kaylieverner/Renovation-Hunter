@@ -86,11 +86,11 @@ $(document).ready(function(){
     var ownerEmail = $('<p>');
     ownerEmail.text(user.email);
     var ownerPhoneNumber = $('<p>');
-    ownerPhoneNumber.text(user.phoneNumber);
+    ownerPhoneNumber.text(user.phoneNum);
     var ownerAddress = $('<p>');
     ownerAddress.text(user.address);
     var ownerCityStateZip = $('<p>');
-    ownerCityStateZip.text(user.city + ', ' + user.state + ' ' + user.zipCode);
+    ownerCityStateZip.text(user.city + ', ' + user.state + ' ' + user.zip);
     var messageOne = $('<h6>');
     messageOne.text('Contact the homeowner for more information');
     userCardHeading.append(ownerName);
