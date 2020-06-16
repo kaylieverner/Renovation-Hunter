@@ -1,33 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>Passport Authentication</title>
+  <title>Renovation Hunter</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
-
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="homepage.html">
+            <img src="logo.png" alt="logo">
+          </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="homepage.html">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="testimonials.html">Testimonials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="signupuser.html">Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Sign Up Form</h2>
+      <div class="col-9 mt-5">
+        <h2 class="mb-5">Sign Up Form</h2>
         <form class="signup">
-          <div class="form-group col-md-6">
-            <label for="inputFirstName">First Name</label>
-            <input type="text" class="form-control" id="inputFirstName">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputLastName">Last Name</label>
-            <input type="text" class="form-control" id="inputLastName">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputFirstName">First Name</label>
+              <input type="text" class="form-control" id="inputFirstName">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputLastName">Last Name</label>
+              <input type="text" class="form-control" id="inputLastName">
+            </div>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
@@ -69,17 +97,20 @@
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
-          <button type="submit" class="btn btn-default">Sign Up</button>
+          <button type="submit" class="btn btn-primary" id="signUpBtn">Sign Up</button>
         </form>
         <br />
-        <p>Or log in <a href="/login">here</a></p>
+        <p>Or log in <a href="login.html">here</a></p>
+      </div>
+    </div>
+    <div id="footer mb-5">
+      <div class="footer navbar-fixed-bottom">
+        <p class="text-black">Team 3: Kaylie Verner, Drew Swinicki, Kevin Lesnak, Kirtana Madiraju, Kendrick Jean</p>
+        <a class="btn-link" href="https://github.com/kaylieverner/Rennovation-Bidder">Github</a>
       </div>
     </div>
   </div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   <script type="text/javascript" src="js/signupUser.js"></script>
-
 </body>
-
 </html>

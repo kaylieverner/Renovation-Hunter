@@ -1,12 +1,12 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-use-before-define */
 $(document).ready(function () {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
-
-  // $.get('/api/user_data').then(function (data) {
-  //   $('.member-name').text(data.email);
-  // });
-
+  $.get('/api/user_data').then(function (data) {
+    $('.member-name').text(data.email);
+  });
+  var jobs;
   var title = $('#title');
   var category = $('#jobCat');
   var timeframe = $('#timeframe');
@@ -15,144 +15,14 @@ $(document).ready(function () {
   var editBtn = $('#editBtn');
   var deleteBtn = $('#deleteBtn');
   var posts;
-
   var activeJobPostContainer = $('.activePosts');
   var jobsCompletedContainer = $('.completedPosts');
-
   // The code below handles the case where we want to get blog posts for a specific user
   // Looks for a query param in the url for user_id
   var url = window.location.search;
   var postId;
   var userId;
   var updating = false;
-  if (url.indexOf('?user_id=') !== -1) {
-    userId = url.split('=')[1];
-    getPosts(userId);
-  }
-  // If there's no userId we just get all posts as usual
-  else {
-    getPosts();
-  }
-
-  function getPosts(user) {
-    userId = user || '';
-    if (userId) {
-      userId = '/?user_id=' + userId;
-    }
-    $.get('/api/posts' + userId, function(data) {
-      console.log('Posts', data);
-      posts = data;
-      if (!posts || !posts.length) {
-        displayEmpty(user);
-      } else {
-        initializeRows();
-        initializeRowsCompletedJobs();
-      }
-    });
-  }
-
-  //when user clicks delete post, remove data from database and remove card
-  deleteBtn.on('click', function (post) {
-    $.ajax({
-      method: 'DELETE',
-      url: '/api/posts',
-      data: post
-    }).then(getPosts);
-  });
-
-  function initializeRows() {
-    activeJobPostContainer.empty();
-    var postsToAdd = [];
-    for (var i = 0; i <posts.length; i++) {
-      postsToAdd.push(createNewRow(posts[i]));
-    }
-    activeJobPostContainer.append(postsToAdd);
-  }
-
-  function initializeRowsCompletedJobs() {
-    jobsCompletedContainer.empty();
-    var postsToAdd = [];
-    for (var i = 0; i <posts.length; i++) {
-      postsToAdd.push(createNewRowCompletedJobs(posts[i]));
-    }
-    jobsCompletedContainer.append(postsToAdd);
-  }
-
-  function createNewRow(post) {
-    var newPostRow = $('<div>');
-    newPostRow.addClass('row');
-    newPostRow.append(newPostCol);
-    var newPostCol = $('<div>');
-    newPostCol.addClass('col');
-    newPostCol.append(newPostCard);
-    var newPostCard = $('<div>');
-    newPostCard.addClass('card-body');
-    var cardTitle = $('<h5>');
-    cardTitle.addClass('card-title');
-    cardTitle.text(post.title);
-    newPostCard.append(cardTitle);
-    var cardTimeframe = $('<h6>');
-    cardTimeframe.addClass('card-subtitle mb-2 text-muted');
-    cardTimeframe.text(post.timeframe);
-    newPostCard.append(cardTimeframe);
-    var cardJobCat = $('<h6>');
-    cardJobCat.addClass('card-subtitle mb-2');
-    cardJobCat.text(post.category);
-    newPostCard.append(cardJobCat);
-    var cardDescription = $('<p>');
-    cardDescription.addClass('card-text');
-    cardDescription.text(post.jobDescription);
-    newPostCard.append(cardDescription);
-    var cardEditBtn = $('<a>');
-    cardEditBtn.addClass('btn btn-success');
-    cardEditBtn.attr('id', 'editBtn');
-    cardEditBtn.text('Edit Post');
-    newPostCard.append(cardEditBtn);
-    var cardDelBtn = $('<a>');
-    cardDelBtn.addClass('btn btn-danger');
-    cardDelBtn.attr('id', 'deleteBtn');
-    cardDelBtn.text('Delete Post');
-    newPostCard.append(cardDelBtn);
-    return newPostRow;
-  }
-
-  function createNewRowCompletedJobs(post) {
-    var newPostRow = $('<div>');
-    newPostRow.addClass('row');
-    newPostRow.append(newPostCol);
-    var newPostCol = $('<div>');
-    newPostCol.addClass('col');
-    newPostCol.append(newPostCard);
-    var newPostCard = $('<div>');
-    newPostCard.addClass('card-body');
-    var cardTitle = $('<h5>');
-    cardTitle.addClass('card-title');
-    cardTitle.text(post.title);
-    newPostCard.append(cardTitle);
-    var cardTimeframe = $('<h6>');
-    cardTimeframe.addClass('card-subtitle mb-2 text-muted');
-    cardTimeframe.text(post.timeframe);
-    newPostCard.append(cardTimeframe);
-    var cardJobCat = $('<h6>');
-    cardJobCat.addClass('card-subtitle mb-2');
-    cardJobCat.text(post.category);
-    newPostCard.append(cardJobCat);
-    var cardDescription = $('<p>');
-    cardDescription.addClass('card-text');
-    cardDescription.text(post.jobDescription);
-    newPostCard.append(cardDescription);
-    var cardEditBtn = $('<a>');
-    cardEditBtn.addClass('btn btn-success');
-    cardEditBtn.attr('id', 'editBtn');
-    cardEditBtn.text('Edit Post');
-    newPostCard.append(cardEditBtn);
-    var cardDelBtn = $('<a>');
-    cardDelBtn.addClass('btn btn-danger');
-    cardDelBtn.attr('id', 'deleteBtn');
-    cardDelBtn.text('Delete Post');
-    newPostCard.append(cardDelBtn);
-    return newPostRow;
-  }
 
   deleteBtn.on('click', function() {
     var currentPost = $(this)
@@ -161,10 +31,15 @@ $(document).ready(function () {
       .data('post');
     deletePost(currentPost.id);
   });
-
-
-//when user clicks create, write job post info to database 
-//figure out if a user or contractor is logged in to show correct html page 
+  //when user clicks delete post, remove data from database and remove card
+  deleteBtn.on('click', function (post) {
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/posts',
+      data: post
+    }).then(getPosts);
+  });
+  //edit post
   editBtn.on('click', function() {
     var currentPost = $(this)
       .parent()
@@ -172,25 +47,9 @@ $(document).ready(function () {
       .data('post');
     window.location.href = '/users?post_id=' + currentPost.id;
   });
-
-  //figure out if a user or contractor is logged in to show correct html page
-  function submitPost(post) {
-    $.post('/api/posts', post, function () {
-      window.location.href = '/blog';
-    });
-  }
-
-  //when user clicks create, append the job post to the jobs pending card
-
- 
-
-  //job posts with an active status should append to my active job posts
-  //GET requst
-
-  //job posts with an inactive status should append to jobs completed
-  //GET request
+  //CODE BELOW THIS LINE IS WORKING:
   //when user clicks create, create new post
-  createBtn.on('click', function createPost(event) {
+  createBtn.on('click', function (event) {
     event.preventDefault();
     // Wont submit the post if we are missing a body, title, or user
     if (!title.val().trim() || !category.val().trim() || !jobDescription.val()) {
@@ -202,17 +61,107 @@ $(document).ready(function () {
       category: category.val().trim(),
       timeframe: timeframe.val().trim(),
       jobDescription: jobDescription.val().trim(),
-      // userId: userId
+
     };
     console.log(newPost);
-
     if (updating) {
       newPost.id = postId;
       updatePost(newPost);
     } else {
       submitPost(newPost);
     }
-
   });
+  function submitPost(newPost) {
+    $.post('/api/posts', newPost, function () {
+      window.location.href = '/members';
+    });
+  }
+
+  function initializeRows() {
+    activeJobPostContainer.empty();
+    var jobsToAdd = [];
+    for (var i = 0; i < jobs.length; i++) {
+      jobsToAdd.push(createNewRow(jobs[i]));
+    }
+    activeJobPostContainer.append(jobsToAdd);
+  }
+  function createNewRow(job) {
+    var jobCard = $('<div>');
+    jobCard.addClass('card');
+    var jobCardHeading = $('<div>');
+    jobCardHeading.addClass('card-header');
+    var editBtn = $('<button>');
+    editBtn.text('Edit Post');
+    editBtn.addClass('edit btn btn-success');
+    var delBtn = $('<button>');
+    delBtn.text('Delete Post');
+    delBtn.addClass('delete btn btn-danger ml-2');
+    var jobTitle = $('<h2>');
+    var jobCategory = $('<h4>');
+    var jobTimeframe = $('<h5>');
+    jobTitle.text(job.title);
+    jobCategory.text('Category: ' + job.category);
+    jobTimeframe.text('Timeframe: ' + job.timeframe);
+    jobCardHeading.append(jobTitle);
+    jobCardHeading.append(jobCategory);
+    jobCardHeading.append(jobTimeframe);
+    var jobCardBody = $('<div>');
+    jobCardBody.addClass('card-body');
+    var jobBody = $('<p>');
+    jobBody.text(job.description);
+    jobCardBody.append(jobBody);
+    jobCardBody.append(editBtn);
+    jobCardBody.append(delBtn);
+    jobCard.append(jobCardHeading);
+    jobCard.append(jobCardBody);
+    jobCard.data('job', job);
+    return jobCard;
+  }
+  getPosts();
+  function getPosts(user) {
+    // userId = user || '';
+    // if (userId) {
+    //   userId = '/?user_id=' + userId;
+    // }
+    $.get('/api/jobs', function(data) {
+      console.log('Posts', data);
+      jobs = data;
+      // if (!posts || !posts.length) {
+      //   displayEmpty();
+      // } else {
+      initializeRows();
+      // initializeRowsCompletedJobs();
+    });
+  }
+
+  function deletePost(id) {
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/posts/' + id
+    })
+      .then(function() {
+        getPosts();
+      });
+  }
+  //when user clicks delete post, remove data from database and remove card
+  $(document).on('click', 'button.delete', function handlePostDelete() {
+    console.log('clicked');
+    var currentPost = $(this)
+      .parent()
+      .parent()
+      .data('job');
+    console.log(currentPost);
+    deletePost(currentPost.id);
+  });
+
+  $(document).on('click', 'button.edit', handlePostEdit);
+  function handlePostEdit() {
+    var currentPost = $(this)
+      .parent()
+      .parent()
+      .data('job');
+    window.location.href = '/postEditor?job_id=' + currentPost.id;
+  }
+
 
 });

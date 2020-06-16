@@ -14,10 +14,6 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, '../public/homepage.html'));
   });
 
-  app.get('/contractors', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public/contractors.html'));
-  });
-
   app.get('/login', function(req, res) {
     res.sendFile(path.join(__dirname, '../public/login.html'));
   });
@@ -26,19 +22,15 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, '../public/postEditor.html'));
   });
 
-  app.get('/signup', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public/signup.html'));
-  });
-
   app.get('/users', function(req, res) {
     res.sendFile(path.join(__dirname, '../public/users.html'));
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get('/users', isAuthenticated, function(req, res) {
+  app.get('/members', isAuthenticated, function(req, res) {
 
-    res.sendFile(path.join(__dirname, '../public/users.html'));
+    res.sendFile(path.join(__dirname, '../public/members.html'));
   });
 
   app.get('/contractors', isAuthenticated, function(req, res) {

@@ -1,40 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>Renovation Bidder</title>
-  <title>Rennovation Bidder</title>
+  <title>Renovation Hunter</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
-
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Rennovation Bidder</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="login.html">Log In</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="signup.html">Sign Up</a>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="homepage.html">
+            <img src="logo.png" alt="logo">
+          </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="homepage.html">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="testimonials.html">Testimonials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="signupuser.html">Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
-
   <div class="container">
     <div class="row">
       <div class="col-md-6 mt-5">
-        <h2>Log In</h2>
+        <h2 class="animate__animated animate__backInDown">Log In</h2>
+        <div class="form-group">
+          <label for="inputState">Account Type</label>
+          <select id="acctType" class="form-control">
+            <option selected>Homeowner</option>
+            <option>Contractor</option>
+          </select>
+        </div>
+      </form>
         <form class="login">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
@@ -48,19 +67,20 @@
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
-          <button type="button" class="btn btn-primary">Log In</button>
+          <button type="submit" class="btn btn-primary">Log In</button>
         </form>
         <br />
-        <p>Or sign up <a href="/signup">here</a></p>
+       
+      </div>
+    </div>
+    <div id="footer">
+      <div class="footer navbar-fixed-bottom">
+        <p class="text-black">Team 3: Kaylie Verner, Drew Swinicki, Kevin Lesnak, Kirtana Madiraju, Kendrick Jean</p>
+        <a class="btn-link" href="https://github.com/kaylieverner/Rennovation-Bidder">Github</a>
       </div>
     </div>
   </div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/login.js"></script>
-
 </body>
-
 </html>
-
-
